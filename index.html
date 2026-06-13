@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mugar Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="loadingScreen" class="ls-bg">
+        <div class="ls-glow-center"></div>
+        <div class="ls-particles" aria-hidden="true">
+            <span class="ls-p ls-p1"></span><span class="ls-p ls-p2"></span><span class="ls-p ls-p3"></span>
+            <span class="ls-p ls-p4"></span><span class="ls-p ls-p5"></span><span class="ls-p ls-p6"></span>
+            <span class="ls-p ls-p7"></span><span class="ls-p ls-p8"></span><span class="ls-p ls-p9"></span>
+            <span class="ls-p ls-p10"></span><span class="ls-p ls-p11"></span><span class="ls-p ls-p12"></span>
+        </div>
+        <div class="ls-card">
+            <div class="ls-logo-wrap">
+                <div class="ls-ring ls-ring-3"></div>
+                <div class="ls-ring ls-ring-2"></div>
+                <div class="ls-ring ls-ring-1"></div>
+                <div class="ls-coin-glow"></div>
+                <div class="ls-coin-box">
+                    <img src="Logo.png" alt="Logo" class="ls-logo-img">
+                </div>
+            </div>
+            <div class="ls-title-block">
+                <h1 class="ls-title">Mugar Converter</h1>
+                <p class="ls-subtitle">Analisis & Konversi Mata Uang ke Emas</p>
+            </div>
+            <div class="ls-chips">
+                <span class="ls-chip ls-chip-delay-1"><img src="Panah.png" class="text-image" style="width: 14px; height: 14px;"> 9 Mata Uang</span>
+                <span class="ls-chip ls-chip-delay-2"><img src="bintang.png" class="text-image" style="width: 14px; height: 14px;"> Real-time</span>
+                <span class="ls-chip ls-chip-delay-3"><img src="Insight.png" class="text-image" style="width: 14px; height: 14px;"> Gratis</span>
+            </div>
+            <div class="ls-bar-track">
+                <div class="ls-bar-fill"></div>
+                <div class="ls-bar-shimmer"></div>
+            </div>
+            <p class="ls-status" id="lsStatus"></p>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="container">   
+            <header class="main-container">
+                <div class="logo">
+                    <img src="Logo.png" alt="Logo Mugar Converter" class="logo-image">
+                    <div class="text-logo">
+                        <img src="Mugar Converter.png" alt="Mugar Converter" class="text-image">
+                        <p class="subtitle">Analisis & Konversi Mata Uang ke Emas</p>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button id="landscapeBtn" class="header-icon-btn" title="Fullscreen">
+                        <svg class="fullscreen-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                        </svg>
+                    </button>
+
+                    <button id="infoBtn" class="header-icon-btn" title="Informasi Aplikasi">
+                        <span class="i-circle">i</span>
+                    </button>
+
+                    <div class="mode">
+                        <img src="Matahari.png" alt="Ikon Matahari" class="icon text-image">
+                        <label class="switch">
+                            <input type="checkbox" id="themeCheckbox">
+                            <span class="geser"></span>
+                        </label>
+                        <img src="Bulan.png" alt="Ikon Bulan" class="icon text-image">
+                    </div>
+                </div>
+            </header>
+
+            <div class="kolom-dashboard">
+                <div class="kolom">
+                    <div class="kolom-header"><img src="Insight.png" alt="" class="card-icon text-image"><span class="badge">+12.5%</span></div>
+                    <div class="kolom-body"><p class="kolom-title">Harga Emas/Oz</p><h2 class="kolom-value" id="topHargaEmas">$4,705.00</h2></div>
+                </div>
+                <div class="kolom">
+                    <div class="kolom-header"><img src="Panah.png" alt="" class="card-icon text-image"><span class="badge">Aktif</span></div>
+                    <div class="kolom-body"><p class="kolom-title">Mata Uang</p><h2 class="kolom-value">9</h2></div>
+                </div>
+                <div class="kolom">
+                    <div class="kolom-header"><img src="Kalkulator.png" alt="" class="card-icon text-image"><span class="badge">Standar</span></div>
+                    <div class="kolom-body"><p class="kolom-title">Gram/Oz</p><h2 class="kolom-value">31.10</h2></div>
+                </div>
+                <div class="kolom">
+                    <div class="kolom-header"><img src="bintang.png" alt="" class="card-icon text-image"><span class="badge">Real-time</span></div>
+                    <div class="kolom-body"><p class="kolom-title">Update</p><h2 class="kolom-value">Live</h2></div>
+                </div>
+            </div>
+
+            <div class="tab-container">
+                <button class="tab-button active">
+                    <img src="Kalk.png" alt="" class="tab-icon text-image">
+                    <span class="tab-text">Konverter</span>
+                </button>
+                <button class="tab-button">
+                    <img src="pie chart.png" alt="" class="tab-icon text-image">
+                    <span class="tab-text">Perbandingan</span>
+                </button>
+                <button class="tab-button">
+                    <img src="chart.png" alt="" class="tab-icon text-image">
+                    <span class="tab-text">Tren</span>
+                </button>
+            </div>
+
+            <div class="converter-box">
+                <div class="input-row">
+                    <div class="input-group">
+                        <div class="input-label">
+                            <img src="Insight.png" alt="Jumlah" class="label-icon text-image">
+                            <span>Jumlah Input</span>
+                        </div>
+                        <input type="text" class="custom-input" id="inputAmount" value="10000">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-label">
+                            <img src="Panah.png" alt="Mata Uang" class="label-icon text-image">
+                            <span>Mata Uang</span>
+                        </div>
+                        <div class="custom-select">
+                            <div class="select-trigger">
+                                <div class="currency-display" id="selectedCurrencyDisplay">
+                                    <span class="flag-text">US</span>
+                                    <span class="currency-code">USD</span>
+                                    <span class="currency-name">- US Dollar</span>
+                                </div>
+                                <img src="down.png" alt="Pilih" class="arrow-down-icon text-image" id="currencyCaret">
+                            </div>
+                            <div class="select-options" id="currencyMenu"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <div class="info-icon-circle">i</div>
+                    <div class="info-text">
+                        <h4>Informasi Real-time</h4>
+                        <p id="realtimeInfoText">1 Troy Oz = $4,705.00 | 1 Troy Oz = 31,1035 gram</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-section">
+                <div class="results-header">
+                    <div class="results-title">
+                        <div class="title-bar"></div>
+                        <h2>Hasil Konversi</h2>
+                    </div>
+                    <button class="deret-btn">5 Deret</button>
+                </div>
+                <div class="result-cards-container" id="resultsList"></div>
+            </div>
+
+            <div class="perbandingan-section">
+                <div class="perbandingan-card">
+                    <h3>Distribusi Emas Berdasarkan Persentase</h3>
+                    <div class="distribusi-wrapper">
+                        <div class="pie-container">
+                            <div class="pie-chart">
+                                <svg viewBox="-50 -50 100 100" class="pie-chart-svg">
+                                    <path class="pie-slice" fill="#f59e0b" d="M 0 0 L 0 -50 A 50 50 0 0 1 29.39 40.45 Z" data-label="100%" data-value="153.59"></path>
+                                    <path class="pie-slice" fill="#fbbf24" d="M 0 0 L 29.39 40.45 A 50 50 0 0 1 -47.55 15.45 Z" data-label="75%" data-value="115.20"></path>
+                                    <path class="pie-slice" fill="#fcd34d" d="M 0 0 L -47.55 15.45 A 50 50 0 0 1 -29.39 -40.45 Z" data-label="50%" data-value="76.80"></path>
+                                    <path class="pie-slice" fill="#fef08a" d="M 0 0 L -29.39 -40.45 A 50 50 0 0 1 0 -50 Z" data-label="25%" data-value="38.40"></path>
+                                </svg>
+                            </div>
+                            <span class="pie-label label-100">100% (40%)</span>
+                            <span class="pie-label label-75">75% (30%)</span>
+                            <span class="pie-label label-50">50% (20%)</span>
+                            <span class="pie-label label-25">25% (10%)</span>
+                        </div>
+                        <div class="distribusi-bars" id="distributionBars"></div>
+                    </div>
+                </div>
+                <div class="perbandingan-card">
+                    <h3>Tabel Perbandingan Detail</h3>
+                    <div class="tabel-wrapper">
+                        <table class="tabel-perbandingan">
+                            <thead>
+                                <tr><th>%</th><th>Jumlah</th><th id="tableCurrencyHeader">USD</th><th>Oz</th><th>Gram</th></tr>
+                            </thead>
+                            <tbody id="comparisonTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tren-section">
+                <div class="tren-card">
+                    <div class="tren-card-header">
+                        <h3>Tren Harga Emas (12 Bulan)</h3>
+                        <div class="ytd-badge">
+                            <span class="badge-green">
+                                <svg class="icon-trend-up" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                                +12.5%
+                            </span>
+                            <span class="badge-gray">YTD</span>
+                        </div>
+                    </div>
+                    <div class="chart-wrapper">
+                        <div class="y-axis"><span>6000</span><span>4500</span><span>3000</span><span>1500</span><span>0</span></div>
+                        <div class="chart-area">
+                            <svg class="chart-svg" viewBox="0 0 1100 300" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="gradOrange" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.6"/><stop offset="100%" stop-color="#fef3c7" stop-opacity="0.05"/>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M 0,143.9 C 50,143.9 50,132.5 100,132.5 C 150,132.5 150,120 200,120 C 250,120 250,102.5 300,102.5 C 350,102.5 350,87.5 400,87.5 C 450,87.5 450,70 500,70 C 550,70 550,55 600,55 C 650,55 650,37.5 700,37.5 C 750,37.5 750,18.3 800,18.3 C 850,18.3 850,30 900,30 C 950,30 950,47.5 1000,47.5 C 1050,47.5 1050,57 1100,57 L 1100,300 L 0,300 Z" fill="url(#gradOrange)" />
+                                <path d="M 0,143.9 C 50,143.9 50,132.5 100,132.5 C 150,132.5 150,120 200,120 C 250,120 250,102.5 300,102.5 C 350,102.5 350,87.5 400,87.5 C 450,87.5 450,70 500,70 C 550,70 550,55 600,55 C 650,55 650,37.5 700,37.5 C 750,37.5 750,18.3 800,18.3 C 850,18.3 850,30 900,30 C 950,30 950,47.5 1000,47.5 C 1050,47.5 1050,57 1100,57" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linecap="round" />
+                                
+                                <circle class="chart-point" cx="0" cy="143.9" r="6" data-month="Mei" data-price="$3,122"></circle>
+                                <circle class="chart-point" cx="100" cy="132.5" r="6" data-month="Jun" data-price="$3,350"></circle>
+                                <circle class="chart-point" cx="200" cy="120" r="6" data-month="Jul" data-price="$3,600"></circle>
+                                <circle class="chart-point" cx="300" cy="102.5" r="6" data-month="Agu" data-price="$3,950"></circle>
+                                <circle class="chart-point" cx="400" cy="87.5" r="6" data-month="Sep" data-price="$4,250"></circle>
+                                <circle class="chart-point" cx="500" cy="70" r="6" data-month="Okt" data-price="$4,600"></circle>
+                                <circle class="chart-point" cx="600" cy="55" r="6" data-month="Nov" data-price="$4,900"></circle>
+                                <circle class="chart-point" cx="700" cy="37.5" r="6" data-month="Des" data-price="$5,250"></circle>
+                                <circle class="chart-point" cx="800" cy="18.3" r="6" data-month="Jan" data-price="$5,634"></circle>
+                                <circle class="chart-point" cx="900" cy="30" r="6" data-month="Feb" data-price="$5,400"></circle>
+                                <circle class="chart-point" cx="1000" cy="47.5" r="6" data-month="Mar" data-price="$5,050"></circle>
+                                <circle class="chart-point" cx="1100" cy="57" r="6" data-month="Apr" data-price="$4,860"></circle>
+                            </svg>
+                        </div>
+                        <div class="x-axis" style="bottom: -32px;">
+                            <span>Mei</span><span>Jun</span><span>Jul</span><span>Agu</span><span>Sep</span><span>Okt</span><span>Nov</span><span>Des</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tren-card">
+                    <div class="tren-card-header"><h3>Volume Perdagangan</h3></div>
+                    <div class="chart-wrapper">
+                        <div class="y-axis"><span>120k</span><span>90k</span><span>60k</span><span>30k</span><span>0</span></div>
+                        <div class="bar-chart-area">
+                            <div class="bar" style="height: 50.4%;" data-month="Mei" data-volume="60,500"></div>
+                            <div class="bar" style="height: 50.8%;" data-month="Jun" data-volume="61,000"></div>
+                            <div class="bar" style="height: 52.1%;" data-month="Jul" data-volume="62,500"></div>
+                            <div class="bar" style="height: 52.5%;" data-month="Agu" data-volume="63,000"></div>
+                            <div class="bar" style="height: 54.2%;" data-month="Sep" data-volume="65,000"></div>
+                            <div class="bar" style="height: 55.8%;" data-month="Okt" data-volume="67,000"></div>
+                            <div class="bar" style="height: 57.9%;" data-month="Nov" data-volume="69,500"></div>
+                            <div class="bar" style="height: 60.0%;" data-month="Des" data-volume="72,000"></div>
+                            <div class="bar" style="height: 87.5%;" data-month="Jan" data-volume="105,000"></div>
+                            <div class="bar" style="height: 75.0%;" data-month="Feb" data-volume="90,000"></div>
+                            <div class="bar" style="height: 66.7%;" data-month="Mar" data-volume="80,000"></div>
+                            <div class="bar" style="height: 29.6%;" data-month="Apr" data-volume="35,500"></div>
+                        </div>
+                        <div class="x-axis" style="bottom: -32px; padding: 0 10px;">
+                            <span>Mei</span><span>Jun</span><span>Jul</span><span>Agu</span><span>Sep</span><span>Okt</span><span>Nov</span><span>Des</span><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <span class="summary-title" style="display: flex; align-items: center; gap: 6px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                            Harga Tertinggi
+                        </span>
+                        <div class="summary-value" id="trenHighest">$5,634.00</div>
+                        <div class="summary-footer" id="trenHighestLabel">dalam USD</div>
+                    </div>
+                    <div class="summary-card">
+                        <span class="summary-title" style="display: flex; align-items: center; gap: 6px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline><polyline points="17 18 23 18 23 12"></polyline></svg>
+                            Harga Terendah
+                        </span>
+                        <div class="summary-value" id="trenLowest">$3,122.00</div>
+                        <div class="summary-footer" id="trenLowestLabel">dalam USD</div>
+                    </div>
+                    <div class="summary-card">
+                        <span class="summary-title" style="display: flex; align-items: center; gap: 6px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                            Rata-rata
+                        </span>
+                        <div class="summary-value" id="trenAverage">$4,497.17</div>
+                        <div class="summary-footer" id="trenAverageLabel">dalam USD</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="infoModal" class="modal-overlay">
+        <div class="modal-backdrop" id="infoModalBackdrop"></div>
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <img src="Logo.png" alt="Logo" class="modal-logo">
+                    <div>
+                        <h2>Mugar Converter</h2>
+                        <span class="version-badge">v1.0.0</span>
+                    </div>
+                </div>
+                <button id="infoModalClose" class="modal-close">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <p class="modal-desc">Aplikasi konversi mata uang ke emas secara real-time. Mudah digunakan untuk menghitung nilai investasi emas berdasarkan berbagai mata uang dunia.</p>
+                <div class="modal-features">
+                    <h3>FITUR UTAMA</h3>
+                    <div class="feature-item">
+                        <img src="Kalk.png" alt="Kalkulator" class="feature-icon text-image">
+                        <div>
+                            <h4>Konverter Cepat</h4>
+                            <p>Konversi mata uang ke Troy Oz & Gram emas secara instan</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <img src="pie chart.png" alt="Perbandingan" class="feature-icon text-image">
+                        <div>
+                            <h4>Perbandingan Persentase</h4>
+                            <p>Distribusi emas berdasarkan 25%, 50%, 75%, dan 100%</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <img src="chart.png" alt="Tren" class="feature-icon text-image">
+                        <div>
+                            <h4>Tren Harga Emas</h4>
+                            <p>Grafik harga & volume perdagangan emas 12 bulan terakhir</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-stats">
+                    <div class="stat-box">
+                        <p class="stat-val">9</p>
+                        <p class="stat-lbl">Mata Uang</p>
+                    </div>
+                    <div class="stat-box">
+                        <p class="stat-val">Live</p>
+                        <p class="stat-lbl">Update</p>
+                    </div>
+                    <div class="stat-box">
+                        <p class="stat-val">Free</p>
+                        <p class="stat-lbl">Akses</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <p>&copy; 2026 Mugar Converter. All rights reserved.</p>
+                <span class="love-badge">Made with &hearts;</span>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="chart-tooltip" class="chart-tooltip"></div>
+    <script src="script.js"></script>
+</body>
+</html>
